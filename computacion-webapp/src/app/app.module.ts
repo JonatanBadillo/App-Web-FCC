@@ -8,13 +8,19 @@ import { LoginScreenComponent } from './screens/login-screen/login-screen.compon
 import { RegistroScreenComponent } from './screens/registro-screen/registro-screen.component';
 import { NavbarComponent } from './partials/navbar/navbar.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { RegistroAdminComponent } from './partials/registro-admin/registro-admin.component';
+import { RegistroAlumnosComponent } from './partials/registro-alumnos/registro-alumnos.component';
+import { RegistroMaestrosComponent } from './partials/registro-maestros/registro-maestros.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginScreenComponent,
     RegistroScreenComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegistroAdminComponent,
+    RegistroAlumnosComponent,
+    RegistroMaestrosComponent
   ],
   imports: [
     BrowserModule,
