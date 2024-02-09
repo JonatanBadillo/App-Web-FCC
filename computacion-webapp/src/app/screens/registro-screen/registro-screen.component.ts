@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatRadioChange } from '@angular/material/radio';
 
 @Component({
   selector: 'app-registro-screen',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class RegistroScreenComponent {
   public tipo:string = "registro-usuarios";
+  public user:any = {};
+
+  public radioChange(event:MatRadioChange){
+    
+  }
+
 }
