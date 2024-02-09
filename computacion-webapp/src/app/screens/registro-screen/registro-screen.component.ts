@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro-screen.component.scss']
 })
 export class RegistroScreenComponent {
-
+  public tipo:string = "registro-usuarios";
 }
