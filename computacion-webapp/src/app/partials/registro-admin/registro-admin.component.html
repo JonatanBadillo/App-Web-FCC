@@ -25,6 +25,29 @@
         <input matInput [(ngModel)]="admin.last_name" placeholder="Escribe apellidos">
       </mat-form-field>
       <!-- <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div> -->
+      <mat-form-field class="mat-input" appearance="outline">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput [(ngModel)]="admin.email" placeholder="Escribe correo electrónico" [disabled]="editar">
+      </mat-form-field>
+
+      <!--<div *ngIf="errors.email" class="invalid-feedback">{{ errors.email }}</div> -->
+
+      <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [(ngModel)]="admin.password" type="{{ inputType_1 }}" placeholder="Escribe contraseña">
+        <mat-icon matSuffix class="eye-icon" (click)="showPassword()">{{hide_1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+
+      <!--<div *ngIf="errors.password" class="invalid-feedback">{{ errors.password }}</div>-->
+
+      <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
+        <mat-label>Confirmar contraseña</mat-label>
+        <input matInput [(ngModel)]="admin.confirmar_password" type="{{ inputType_2 }}" placeholder="Confirma la contraseña">
+        <mat-icon matSuffix class="eye-icon" (click)="showPwdConfirmar()">{{hide_2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+
+      <!-- <div *ngIf="errors.confirmar_password" class="invalid-feedback">{{ errors.confirmar_password }}</div> -->
+
     </div>
   </div>
 </div>
