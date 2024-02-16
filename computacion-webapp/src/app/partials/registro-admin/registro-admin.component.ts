@@ -20,6 +20,20 @@ export class RegistroAdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
+  public regresar(){
+
+  }
+
+  public registrar(){
+
+  }
+
+  public actualizar(){
+
+  }
+
   //Funciones para password
   showPassword()
   {
