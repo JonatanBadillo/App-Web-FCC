@@ -36,7 +36,7 @@ export class RegistroAdminComponent implements OnInit{
   }
 
   public registrar(){
-//Validar
+    //Validar
     this.errors = [];
 
     this.errors = this.administradoresService.validarAdmin(this.admin, this.editar);

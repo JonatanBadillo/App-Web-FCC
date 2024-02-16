@@ -1,169 +1,42 @@
-<h1>Jonatan Enrique Badillo Tejeda</h1>
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Accordion Item #1
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
+<section class="login">
+  <div class="wrapper">
+    <div class="section-left">
+      <img src="/assets/images/Buap.png" class="logo-buap">
+      <img src="/assets/images/FCCBuap.png" class="logo-fcc">
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-</div>
+    <div class="section-right">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="title">Inicio de Sesión</h3>
+          <div class="container-inputs">
+            <div class="pt-3 mb-3">
+              <input type="email" [(ngModel)]="username" class="form-control" id="email" placeholder="Correo electrónico">
+              <!-- <div *ngIf="errors.username" class="invalid-feedback">{{ errors.username }}</div> -->
+            </div>
+            <!-- Contraseña -->
+            <div class="pt-3 mb-3">
+              <div class="input-group input-group-merge">
+                <input type="{{type}}" [(ngModel)]="password" id="password" name="password_user" class="form-control pwd" placeholder="Contraseña" (keyup.enter)="login()">
+                <div class="input-group-text" id="show-password" data-password="false">
+                    <i *ngIf="type == 'password'" class="bi bi-eye-fill" (click)="showPassword()"></i>
+                    <i *ngIf="type == 'text'" class="bi bi-eye-slash-fill" (click)="showPassword()"></i>
+                </div>
+              </div>
+              <!-- <div *ngIf="errors.password" class="invalid-feedback">{{ errors.password }}</div> -->
+            </div>
 
-<br>
+            <div class="mb-3">
+              <label class="form-check-label" for="checkbox-signin">Olvidé mi contraseña</label>
+            </div>
 
-<section>
-  <div class="example-label">Basic</div>
-  <div class="example-button-row">
-    <button mat-button>Basic</button>
-    <button mat-button color="primary">Primary</button>
-    <button mat-button color="accent">Accent</button>
-    <button mat-button color="warn">Warn</button>
-    <button mat-button disabled>Disabled</button>
-    <a mat-button href="https://www.google.com/" target="_blank">Link</a>
-  </div>
-</section>
-<mat-divider></mat-divider>
-<section>
-  <div class="example-label">Raised</div>
-  <div class="example-button-row">
-    <button mat-raised-button>Basic</button>
-    <button mat-raised-button color="primary">Primary</button>
-    <button mat-raised-button color="accent">Accent</button>
-    <button mat-raised-button color="warn">Warn</button>
-    <button mat-raised-button disabled>Disabled</button>
-    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-  </div>
-</section>
-<mat-divider></mat-divider>
-<section>
-  <div class="example-label">Stroked</div>
-  <div class="example-button-row">
-    <button mat-stroked-button>Basic</button>
-    <button mat-stroked-button color="primary">Primary</button>
-    <button mat-stroked-button color="accent">Accent</button>
-    <button mat-stroked-button color="warn">Warn</button>
-    <button mat-stroked-button disabled>Disabled</button>
-    <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
-  </div>
-</section>
-<mat-divider></mat-divider>
-<section>
-  <div class="example-label">Flat</div>
-  <div class="example-button-row">
-    <button mat-flat-button>Basic</button>
-    <button mat-flat-button color="primary">Primary</button>
-    <button mat-flat-button color="accent">Accent</button>
-    <button mat-flat-button color="warn">Warn</button>
-    <button mat-flat-button disabled>Disabled</button>
-    <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
-  </div>
-</section>
-<mat-divider></mat-divider>
-<section>
-  <div class="example-label">Icon</div>
-  <div class="example-button-row">
-    <div class="example-flex-container">
-      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-        <mat-icon>home</mat-icon>
-      </button>
-      <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
-        <mat-icon>open_in_new</mat-icon>
-      </button>
-    </div>
-  </div>
-</section>
-<mat-divider></mat-divider>
-<section>
-  <div class="example-label">FAB</div>
-  <div class="example-button-row">
-    <div class="example-flex-container">
-      <div class="example-button-container">
-        <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
-      <div class="example-button-container">
-        <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>bookmark</mat-icon>
-        </button>
-      </div>
-      <div class="example-button-container">
-        <button mat-fab color="warn" aria-label="Example icon button with a home icon">
-          <mat-icon>home</mat-icon>
-        </button>
-      </div>
-      <div class="example-button-container">
-        <button mat-fab disabled aria-label="Example icon button with a heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-<mat-divider></mat-divider>
-<section>
-  <div class="example-label">Mini FAB</div>
-  <div class="example-button-row">
-    <div class="example-flex-container">
-      <div class="example-button-container">
-        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-      <div class="example-button-container">
-        <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
-          <mat-icon>plus_one</mat-icon>
-        </button>
-      </div>
-      <div class="example-button-container">
-        <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
-          <mat-icon>filter_list</mat-icon>
-        </button>
-      </div>
-      <div class="example-button-container">
-        <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
-          <mat-icon>home</mat-icon>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+            <div class="d-flex flex-column align-items-center mb-3 w-100" style="text-align: center;">
+              <button class="btn btn-primary" type="submit" (click)="login()">Iniciar sesión</button>
+              <label class="form-check-label pt-3" for="checkbox-signin" (click)="registrar()">Registrarse</label>
+            </div>
 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
