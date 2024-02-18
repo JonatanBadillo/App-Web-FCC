@@ -14,6 +14,20 @@
         <div *ngIf="errors.id_trabajador" class="invalid-feedback">{{ errors.id_trabajador }}</div>
         <!-- TODO:Agregar todos los input faltantes -->
 
+        <mat-form-field class="mat-input" appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="maestro.first_name" placeholder="Escribe nombre">
+        </mat-form-field>
+        <div *ngIf="errors.first_name" class="invalid-feedback">{{ errors.first_name }}</div>
+
+        <mat-form-field class="mat-input" appearance="outline">
+          <mat-label>Apellidos</mat-label>
+          <input matInput [(ngModel)]="maestro.last_name" placeholder="Escribe apellidos">
+        </mat-form-field>
+        <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div>
+
+        
+
 
         <!-- SELECT DE MATERIAS-->
         <div class="select-materias">
