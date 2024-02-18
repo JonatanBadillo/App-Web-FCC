@@ -49,7 +49,17 @@
       </mat-form-field>
       <div *ngIf="errors.fecha_nacimiento" class="invalid-feedback">{{ errors.fecha_nacimiento }}</div>
 
+      <mat-form-field class="mat-input" appearance="outline">
+        <mat-label>Teléfono</mat-label>
+        <input matInput [(ngModel)]="maestro.telefono" mask='(000) 000-0000' placeholder="Escribe teléfono">
+      </mat-form-field>
+      <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
 
+      <mat-form-field class="mat-input" appearance="outline">
+          <mat-label>RFC</mat-label>
+          <input matInput [(ngModel)]="maestro.rfc" placeholder="Escribe RFC" style="text-transform: uppercase;">
+      </mat-form-field>
+      <div *ngIf="errors.rfc" class="invalid-feedback">{{ errors.rfc }}</div>
 
 
         <!-- SELECT DE MATERIAS-->
