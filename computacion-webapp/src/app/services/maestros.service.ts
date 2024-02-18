@@ -17,7 +17,7 @@ export class MaestrosService {
   public esquemaMaestro(){
     return {
       rol: '',
-      id_trabajador: '',
+      clave_maestro: '',
       first_name: '',
       last_name: '',
       password: '',
