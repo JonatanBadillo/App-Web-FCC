@@ -13,6 +13,14 @@ export class RegistroMaestrosComponent implements OnInit{
 
   public errors:any = {};
 
+  public areas:any[]= [
+    {value: '1', viewValue: 'Desarrollo Web'},
+    {value: '2', viewValue: 'Programacion'},
+    {value: '3', viewValue: 'Base de Datos'},
+    {value: '4', viewValue: 'Redes'},
+    {value: '5', viewValue: 'Matematicas'},
+  ];
+
   public materias:any[]= [
     {value: '1', nombre: 'Aplicaciones Web'},
     {value: '2', nombre: 'Programación 1'},
