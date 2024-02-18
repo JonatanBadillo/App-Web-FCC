@@ -90,6 +90,10 @@ export class MaestrosService {
       error["cubiculo"] = this.errorService.required;
     }
 
+    if(!this.validatorService.required(data["fecha_nacimiento"])){
+      error["fecha_nacimiento"] = this.errorService.required;
+    }
+
     //Return arreglo
     return error;
   }
