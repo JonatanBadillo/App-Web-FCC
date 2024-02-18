@@ -26,7 +26,19 @@
         </mat-form-field>
         <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div>
 
-        
+        <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [(ngModel)]="maestro.password" type="{{ inputType_1 }}" placeholder="Escribe contraseña">
+          <mat-icon matSuffix class="eye-icon" (click)="showPassword()">{{hide_1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+        <div *ngIf="errors.password" class="invalid-feedback">{{ errors.password }}</div>
+
+        <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
+          <mat-label>Confirmar contraseña</mat-label>
+          <input matInput [(ngModel)]="maestro.confirmar_password" type="{{ inputType_2 }}" placeholder="Confirma la contraseña">
+          <mat-icon matSuffix class="eye-icon" (click)="showPwdConfirmar()">{{hide_2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+        <div *ngIf="errors.confirmar_password" class="invalid-feedback">{{ errors.confirmar_password }}</div>
 
 
         <!-- SELECT DE MATERIAS-->

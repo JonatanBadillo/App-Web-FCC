@@ -1,5 +1,5 @@
-import { MaestrosService } from './../../services/maestros.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { MaestrosService } from '../../services/maestros.service';
 declare var $:any;
 
 @Component({
@@ -12,8 +12,13 @@ export class RegistroMaestrosComponent implements OnInit{
 
   public maestro:any = {};
   public editar:boolean = false;
-
   public errors:any = {};
+  //Para contraseñas
+  public hide_1: boolean = false;
+  public hide_2: boolean = false;
+  public inputType_1: string = 'password';
+  public inputType_2: string = 'password';
+
 
   public areas:any[]= [
     {value: '1', viewValue: 'Desarrollo Web'},
@@ -31,15 +36,18 @@ export class RegistroMaestrosComponent implements OnInit{
     {value: '5', nombre: 'Minería de datos'},
     {value: '6', nombre: 'Desarrollo móvil'},
     {value: '7', nombre: 'Estructuras de datos'},
-    {value: '8', nombre: 'Administración de redes'},
+    {value: '8', nombre: 'maestroistración de redes'},
     {value: '9', nombre: 'Ingeniería de Software'},
-    {value: '10', nombre: 'Administración de S.O.'},
+    {value: '10', nombre: 'maestroistración de S.O.'},
   ];
 
-  constructor(){}
+  constructor(
+    private maestrosService: MaestrosService){}
 
   ngOnInit(): void {
-
+    this.maestro = this.maestrosService.esquemaMaestro();
+    this.maestro.rol = this.rol;
+    console.log("maestro: ", this.maestro);
   }
 
   public regresar(){
@@ -53,6 +61,31 @@ export class RegistroMaestrosComponent implements OnInit{
   public actualizar(){
 
   }
+
+//Funciones para password
+showPassword()
+{
+  if(this.inputType_1 == 'password'){
+    this.inputType_1 = 'text';
+    this.hide_1 = true;
+  }
+  else{
+    this.inputType_1 = 'password';
+    this.hide_1 = false;
+  }
+}
+
+showPwdConfirmar()
+{
+  if(this.inputType_2 == 'password'){
+    this.inputType_2 = 'text';
+    this.hide_2 = true;
+  }
+  else{
+    this.inputType_2 = 'password';
+    this.hide_2 = false;
+  }
+}
 
   public checkboxChange(event:any){
     //console.log("Evento: ", event);
@@ -68,4 +101,6 @@ export class RegistroMaestrosComponent implements OnInit{
     }
     console.log("Array materias: ", this.maestro);
   }
+
+
 }
