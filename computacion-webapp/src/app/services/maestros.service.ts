@@ -82,7 +82,13 @@ export class MaestrosService {
       alert("El formato es solo números");
     }
 
+    if(!this.validatorService.required(data["telefono"])){
+      error["telefono"] = this.errorService.required;
+    }
 
+    if(!this.validatorService.required(data["cubiculo"])){
+      error["cubiculo"] = this.errorService.required;
+    }
 
     //Return arreglo
     return error;
