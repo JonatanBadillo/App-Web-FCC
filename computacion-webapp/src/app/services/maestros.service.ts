@@ -94,6 +94,10 @@ export class MaestrosService {
       error["fecha_nacimiento"] = this.errorService.required;
     }
 
+    if(!this.validatorService.required(data["area_investigacion"])){
+      error["area_investigacion"] = this.errorService.required;
+    }
+
     //Return arreglo
     return error;
   }

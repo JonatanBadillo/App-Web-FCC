@@ -68,8 +68,8 @@
     <div *ngIf="errors.rfc" class="invalid-feedback">{{ errors.rfc }}</div>
 
     <mat-form-field class="mat-input" appearance="outline">
-      <mat-label>Área de trabajo</mat-label>
-      <mat-select [(ngModel)]="maestro.area_trabajo" name="area_trabajo" placeholder="Selecciona el área de trabajo">
+      <mat-label>Área de Investigacion</mat-label>
+      <mat-select [(ngModel)]="maestro.area_invetigacion" name="area_investigacion" placeholder="Selecciona el área de investigacion">
         <mat-option value="1">Desarrollo Web</mat-option>
         <mat-option value="2">Programacion</mat-option>
         <mat-option value="3">Base de Datos</mat-option>
@@ -78,7 +78,7 @@
 
       </mat-select>
     </mat-form-field>
-    <div *ngIf="errors.area_trabajo" class="invalid-feedback">{{ errors.area_trabajo }}</div>
+    <div *ngIf="errors.area_investigacion" class="invalid-feedback">{{ errors.area_investigacion }}</div>
 
 
         <!-- SELECT DE MATERIAS-->
