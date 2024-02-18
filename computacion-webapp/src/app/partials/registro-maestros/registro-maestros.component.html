@@ -11,7 +11,7 @@
           <mat-label>ID de trabajador</mat-label>
           <input matInput [(ngModel)]="maestro.clave_maestro" name="id" placeholder="Escribe ID de trabajador">
       </mat-form-field>
-      <div *ngIf="errors.id_trabajador" class="invalid-feedback">{{ errors.id_trabajador }}</div>
+      <div *ngIf="errors.clave_maestro" class="invalid-feedback">{{ errors.clave_maestro }}</div>
       <!-- TODO:Agregar todos los input faltantes -->
 
       <mat-form-field class="mat-input" appearance="outline">
