@@ -55,7 +55,15 @@ export class RegistroMaestrosComponent implements OnInit{
   }
 
   public registrar(){
+    //Validar
+    this.errors = [];
 
+    this.errors = this.maestrosService.validarMaestro(this.maestro, this.editar);
+    if(!$.isEmptyObject(this.errors)){
+      return false;
+    }
+
+    // TODO:Después registraremos admin
   }
 
   public actualizar(){
