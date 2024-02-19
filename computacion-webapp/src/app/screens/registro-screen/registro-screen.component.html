@@ -5,6 +5,7 @@
       <app-navbar [tipo]="tipo"></app-navbar>
     </div>
     <div class="body-registro">
+      <!-- slider de imagenes -->
       <section class="slider">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
           <div class="carousel-indicators">
@@ -56,17 +57,18 @@
        <section class="forms-registro">
         <!-- Formulario del admin -->
         <section class="registro-admin" *ngIf="isAdmin">
-          <app-registro-admin></app-registro-admin>
+          <app-registro-admin [rol]="tipo_user"></app-registro-admin>
         </section>
          <!-- Formulario del alumno -->
         <section class="registro-alumnos" *ngIf="isAlumno">
-          <app-registro-alumnos></app-registro-alumnos>
+          <app-registro-alumnos [rol]="tipo_user"></app-registro-alumnos>
         </section>
          <!-- Formulario del maestro -->
         <section class="registro-maestros" *ngIf="isMaestro">
-          <app-registro-maestros></app-registro-maestros>
+          <app-registro-maestros [rol]="tipo_user"></app-registro-maestros>
         </section>
       </section>
     </div>
   </div>
 </div>
+

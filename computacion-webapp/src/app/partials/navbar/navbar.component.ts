@@ -7,15 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit{
 
-  @Input() tipo:string = "";
+  @Input() tipo: string = "";
 
-  public token:string = "";
+  public token: string = "";
 
-
-
-  constructor(){}
+  constructor (){}
 
   ngOnInit(): void {
+
   }
 
   public logout(){
