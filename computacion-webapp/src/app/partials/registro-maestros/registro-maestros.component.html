@@ -81,21 +81,19 @@
     <div *ngIf="errors.area_investigacion" class="invalid-feedback">{{ errors.area_investigacion }}</div>
 
 
-        <!-- SELECT DE MATERIAS-->
-        <div class="select-materias">
-          <div class="row mt-3 mb-3">
-            <div class="form-group col-12">
-              <label class="title-materias" for="tipo_usuario">Selecciona las materias a impartir</label>
-            </div>
+        <!--Sección de materias -->
+      <div class="select-materias">
+        <div class="row mt-3 mb-3">
+          <div class="form-group col-12">
+            <label class="title-materias" for="tipo_usuario">Selecciona las materias a impartir</label>
           </div>
-          <div class="checkbox-group" *ngFor="let materia of materias; let i = index">
-            <mat-checkbox class="checkbox-item opc-sc" name="opsc" (change)="checkboxChange($event)" value="{{materia.nombre}}">
-                <div class="d-checkbox-nombre">{{materia.nombre}}</div>
-            </mat-checkbox>
-          </div>
-          <!-- TODO: VALIDAR BIEN EL SELECT -->
-          <div *ngIf="errors.materias" class="invalid-feedback">{{ errors.materias }}</div>
         </div>
+        <div class="checkbox-group" *ngFor="let materia of materias; let i = index">
+          <mat-checkbox class="checkbox-item opc-sc" name="opsc" (change)="checkboxChange($event)" value="{{materia.nombre}}">
+            <div class="d-checkbox-nombre">{{materia.nombre}}</div>
+          </mat-checkbox>
+        </div>
+      </div>
 
         <div class="section-buttons">
             <button class="btn btn-danger" (click)="regresar()">Cancelar</button>
