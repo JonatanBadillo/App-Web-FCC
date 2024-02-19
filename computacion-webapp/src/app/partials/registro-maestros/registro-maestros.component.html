@@ -65,7 +65,7 @@
         <mat-label>Cubiculo</mat-label>
         <input matInput [(ngModel)]="maestro.cubiculo" placeholder="Escribe Cubiculo" >
     </mat-form-field>
-    <div *ngIf="errors.rfc" class="invalid-feedback">{{ errors.rfc }}</div>
+    <div *ngIf="errors.rfc" class="invalid-feedback">{{ errors.cubiculo }}</div>
 
     <mat-form-field class="mat-input" appearance="outline">
       <mat-label>Área de Investigacion</mat-label>
@@ -93,6 +93,7 @@
                 <div class="d-checkbox-nombre">{{materia.nombre}}</div>
             </mat-checkbox>
           </div>
+          <!-- TODO: VALIDAR BIEN EL SELECT -->
           <div *ngIf="errors.materias" class="invalid-feedback">{{ errors.materias }}</div>
         </div>
 
