@@ -63,7 +63,7 @@
 
       <mat-form-field class="mat-input" appearance="outline">
         <mat-label>Cubiculo</mat-label>
-        <input matInput [(ngModel)]="maestro.cubiculo" placeholder="Escribe RFC" style="text-transform: uppercase;">
+        <input matInput [(ngModel)]="maestro.cubiculo" placeholder="Escribe Cubiculo" >
     </mat-form-field>
     <div *ngIf="errors.rfc" class="invalid-feedback">{{ errors.rfc }}</div>
 
@@ -93,6 +93,7 @@
                 <div class="d-checkbox-nombre">{{materia.nombre}}</div>
             </mat-checkbox>
           </div>
+          <div *ngIf="errors.materias" class="invalid-feedback">{{ errors.materias }}</div>
         </div>
 
         <div class="section-buttons">

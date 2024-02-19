@@ -98,6 +98,10 @@ export class MaestrosService {
       error["area_investigacion"] = this.errorService.required;
     }
 
+    if(!this.validatorService.required(data["materias"])){
+      error["materias"] = this.errorService.required;
+    }
+
     //Return arreglo
     return error;
   }

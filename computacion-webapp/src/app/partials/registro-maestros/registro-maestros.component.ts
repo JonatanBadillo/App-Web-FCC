@@ -36,9 +36,9 @@ export class RegistroMaestrosComponent implements OnInit{
     {value: '5', nombre: 'Minería de datos'},
     {value: '6', nombre: 'Desarrollo móvil'},
     {value: '7', nombre: 'Estructuras de datos'},
-    {value: '8', nombre: 'maestroistración de redes'},
+    {value: '8', nombre: 'Administración de redes'},
     {value: '9', nombre: 'Ingeniería de Software'},
-    {value: '10', nombre: 'maestroistración de S.O.'},
+    {value: '10', nombre: 'Administracion de S.O.'},
   ];
 
   constructor(
