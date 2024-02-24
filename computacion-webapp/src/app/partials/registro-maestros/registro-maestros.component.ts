@@ -132,4 +132,10 @@ public materias:any[]= [
       this.hide_2 = false;
     }
   }
+
+  //Select
+  public changeSelect(event:any){
+    console.log(event);
+    this.maestro.area_investigacion = event.value;
+  }
 }
