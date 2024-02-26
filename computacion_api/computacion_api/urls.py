@@ -24,8 +24,8 @@ from computacion_api.views import auth
 urlpatterns = [
     #Version
         path('bootstrap/version', bootstrap.VersionView.as_view()),
-    #Create User
-        path('users/', users.AdminView.as_view()),
+    #Create Admin
+        path('admin/', users.AdminView.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout
