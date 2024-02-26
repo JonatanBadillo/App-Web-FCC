@@ -49,7 +49,7 @@ Thumbs.db
 *.wmv
 
 # Django Migrations
-computacion_api/migrations
+sistema_fcc_api/migrations
 
 # SQL Config
 #*.cnf
