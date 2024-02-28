@@ -29,7 +29,7 @@ urlpatterns = [
     #create alumno
         path('alumnos/', alumnos.AlumnosView.as_view()),
     #create maestro
-       # path('maestros/', maestros.MaestrosView.as_view()),
+        #path('maestros/', maestros.MaestrosView.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout

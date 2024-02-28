@@ -23,7 +23,7 @@ class Administradores(models.Model):
     def __str__(self):
         return "Perfil del admin "+self.first_name+" "+self.last_name
     
-
+    
 class Alumnos(models.Model):
     id = models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
@@ -39,3 +39,4 @@ class Alumnos(models.Model):
 
     def __str__(self):
         return "Perfil del alumno "+self.first_name+" "+self.last_name    
+
