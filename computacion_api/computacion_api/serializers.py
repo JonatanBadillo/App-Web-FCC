@@ -12,6 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id','first_name','last_name', 'email')
 
+#Serializador para administradores
 class AdminSerializer(serializers.ModelSerializer):
     user=UserSerializer(read_only=True)
     class Meta:
