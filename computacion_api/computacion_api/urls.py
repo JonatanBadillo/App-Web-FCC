@@ -18,7 +18,7 @@ from django.urls import path
 from computacion_api.views import bootstrap
 from computacion_api.views import users#Vista de administradores
 from computacion_api.views import alumnos#Visa de alumnos
-#from computacion_api.views import maestros#Vista de maestros
+from computacion_api.views import maestros#Vista de maestros
 from computacion_api.views import auth
 
 urlpatterns = [
@@ -29,7 +29,7 @@ urlpatterns = [
     #create alumno
         path('alumnos/', alumnos.AlumnosView.as_view()),
     #create maestro
-        #path('maestros/', maestros.MaestrosView.as_view()),
+        path('maestros/', maestros.MaestrosView.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout
