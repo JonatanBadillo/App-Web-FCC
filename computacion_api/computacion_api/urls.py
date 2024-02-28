@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from computacion_api.views import bootstrap
 from computacion_api.views import users#Vista de administradores
-#from computacion_api.views import alumnos#Visa de alumnos
+from computacion_api.views import alumnos#Visa de alumnos
 #from computacion_api.views import maestros#Vista de maestros
 from computacion_api.views import auth
 
@@ -27,7 +27,7 @@ urlpatterns = [
     #Create User
         path('admin/', users.AdminView.as_view()),
     #create alumno
-        #path('alumnos/', alumnos.AlumnosView.as_view()),
+        path('alumnos/', alumnos.AlumnosView.as_view()),
     #create maestro
        # path('maestros/', maestros.MaestrosView.as_view()),
     #Login
