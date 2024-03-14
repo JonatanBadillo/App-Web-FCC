@@ -28,7 +28,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { HomeComponent } from './screens/home/home.component';
+import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HomeComponent } from './screens/home/home.component';
     RegistroAdminComponent,
     RegistroAlumnosComponent,
     RegistroMaestrosComponent,
-    HomeComponent
+    HomeScreenComponent,
+
   ],
   imports: [
     BrowserModule,
