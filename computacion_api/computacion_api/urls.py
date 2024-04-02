@@ -24,11 +24,15 @@ from computacion_api.views import auth
 urlpatterns = [
     #Version
         path('bootstrap/version', bootstrap.VersionView.as_view()),
-    #Create User
+    #Create Admin
         path('admin/', users.AdminView.as_view()),
-    #create alumno
+    #Admin Data
+        path('lista-admins/', users.AdminAll.as_view()),
+    #Create Alumno
         path('alumnos/', alumnos.AlumnosView.as_view()),
-    #create maestro
+    #Alumno Data
+        path('lista-alumnos/', alumnos.AlumnosAll.as_view()),
+    #Create Maestro
         path('maestros/', maestros.MaestrosView.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
