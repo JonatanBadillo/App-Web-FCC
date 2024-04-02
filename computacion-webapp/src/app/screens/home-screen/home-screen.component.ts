@@ -8,9 +8,8 @@ import { FacadeService } from 'src/app/services/facade.service';
   styleUrls: ['./home-screen.component.scss']
 })
 export class HomeScreenComponent implements OnInit{
-
-  public rol: string = "";
-  public token:string = "";
+  public rol:string = "";
+  public token: string = "";
 
   constructor(
     private facadeService: FacadeService,
@@ -18,7 +17,7 @@ export class HomeScreenComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-     //Validar que haya inicio de sesión
+    //Validar que haya inicio de sesión
     //Obtengo el token del login
     this.token = this.facadeService.getSessionToken();
     console.log("Token: ", this.token);
