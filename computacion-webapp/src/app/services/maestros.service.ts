@@ -1,13 +1,16 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ValidatorService } from './tools/validator.service';
+import { Injectable } from '@angular/core';
 import { ErrorsService } from './tools/errors.service';
+import { ValidatorService } from './tools/validator.service';
+//Librerias necesarias para la conexion con la API
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { FacadeService } from './facade.service';
 
-const httpOptions = {
+//Configuracion para la api
+const httpOptions ={
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -17,23 +20,25 @@ export class MaestrosService {
     private http: HttpClient,
     private validatorService: ValidatorService,
     private errorService: ErrorsService,
+    private facadeService: FacadeService
   ) { }
 
-  public esquemaMaestro(){
+  //Esquema para maestro
+  public esquemaMaestro() {
     return {
-      'rol':'',
-      'id_trabajador': '',
+      'rol': '',
+      'clave_maestro': '',
       'first_name': '',
       'last_name': '',
       'email': '',
       'password': '',
       'confirmar_password': '',
-      'fecha_nacimiento': '',
       'telefono': '',
       'rfc': '',
+      'fecha_de_nacimiento': '',
       'cubiculo': '',
       'area_investigacion': '',
-      'materias_json': []
+      'materias_json': [],
     }
   }
 
@@ -99,16 +104,24 @@ export class MaestrosService {
     }
 
     if(data["materias_json"].length == 0){
-      error["materias_json"] = "Al menos debes seleccionar una materia.";
-      // alert("Debes seleccionar materias para poder registrarte.");
+      error["materias_json"] = "Al menos debes elegir una materia";
+      //alert("Debes seleccionar materias para poder registrarte.");
     }
     //Return arreglo
     return error;
   }
+    //Maestro
+    //Servicio para HTTP
+    //registrar nuevo usuario Maestro
+    public registrarMaestro(data: any): Observable<any> {
+    return this.http.post<any>(`${environment.url_api}/maestros/`, data, httpOptions);
+    }
 
-  //Servicio para registrar un nuevo usuario
-  public registrarMaestro (data: any): Observable <any>{
-    return this.http.post<any>(`${environment.url_api}/maestros/`,data, httpOptions);
-  }
+    //Obtener la lista de maestros
+    public obtenerListaMaestros(): Observable <any>{
+      var token = this.facadeService.getSessionToken();
+      var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
+      return this.http.get<any>(`${environment.url_api}/lista-maestro/`, {headers:headers});
+    }
 
 }
