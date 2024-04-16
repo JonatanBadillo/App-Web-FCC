@@ -6,7 +6,6 @@ import { AlumnosService } from 'src/app/services/alumnos.service';
 import { FacadeService } from 'src/app/services/facade.service';
 import { MaestrosService } from 'src/app/services/maestros.service';
 import { Location } from '@angular/common';
-
 @Component({
   selector: 'app-registro-screen',
   templateUrl: './registro-screen.component.html',
@@ -14,21 +13,21 @@ import { Location } from '@angular/common';
 })
 export class RegistroScreenComponent implements OnInit{
 
-  public tipo:string = "registro-usuarios";
-    //JSON para los usuarios (admin, maestros, alumnos)
-  public user: any = {};
-  public tipo_user:string = "";
+    public tipo:string = "registro-usuarios";
+      //JSON para los usuarios (admin, maestros, alumnos)
+    public user: any = {};
+    public tipo_user:string = "";
 
-  public isUpdate:boolean = false;
-  public errors:any = {};
-  //Banderas para el tipo de usuario
-  public isAdmin:boolean = false;
-  public isAlumno:boolean = false;
-  public isMaestro:boolean = false;
-  public editar: boolean = false;
-  //Info del usuario
-  public idUser: Number = 0;
-  public rol: string = "";
+    public isUpdate:boolean = false;
+    public errors:any = {};
+    //Banderas para el tipo de usuario
+    public isAdmin:boolean = false;
+    public isAlumno:boolean = false;
+    public isMaestro:boolean = false;
+    public editar: boolean = false;
+    //Info del usuario
+    public idUser: Number = 0;
+    public rol: string = "";
 
     constructor(
       private location : Location,
@@ -41,24 +40,24 @@ export class RegistroScreenComponent implements OnInit{
     ){}
 
     ngOnInit(): void {
-      //Obtener de la URL el rol para saber cual editar
-      if(this.activatedRoute.snapshot.params['rol'] != undefined){
-        this.rol = this.activatedRoute.snapshot.params['rol'];
-        console.log("Rol detect: ", this.rol);
-      }
-      //El if valida si existe un parámetro en la URL
-      if(this.activatedRoute.snapshot.params['id'] != undefined){
-        this.editar = true;
-        //Asignamos a nuestra variable global el valor del ID que viene por la URL
-        this.idUser = this.activatedRoute.snapshot.params['id'];
-        console.log("ID User: ", this.idUser);
-        //Al iniciar la vista obtiene el usuario por su ID
-        this.obtenerUserByID();
-      }
+          //Obtener de la URL el rol para saber cual editar
+    if(this.activatedRoute.snapshot.params['rol'] != undefined){
+      this.rol = this.activatedRoute.snapshot.params['rol'];
+      console.log("Rol detect: ", this.rol);
+    }
+    //El if valida si existe un parámetro en la URL
+    if(this.activatedRoute.snapshot.params['id'] != undefined){
+      this.editar = true;
+      //Asignamos a nuestra variable global el valor del ID que viene por la URL
+      this.idUser = this.activatedRoute.snapshot.params['id'];
+      console.log("ID User: ", this.idUser);
+      //Al iniciar la vista obtiene el usuario por su ID
+      this.obtenerUserByID();
+    }
 
     }
 
-    //Función para obtener un solo usuario por su ID
+      //Función para obtener un solo usuario por su ID
     public obtenerUserByID(){
       if(this.rol == "administrador"){
         this.administradorService.getAdminByID(this.idUser).subscribe(
