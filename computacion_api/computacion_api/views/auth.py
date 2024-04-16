@@ -30,7 +30,8 @@ import string
 import random
 
 class CustomAuthToken(ObtainAuthToken):
-    def post(self, request, *args, **kwargs):
+
+   def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data,
                                            context={'request': request})
 
@@ -69,7 +70,6 @@ class CustomAuthToken(ObtainAuthToken):
                 pass
 
         return Response({}, status=status.HTTP_403_FORBIDDEN)
-    
 
 class Logout(generics.GenericAPIView):
 
