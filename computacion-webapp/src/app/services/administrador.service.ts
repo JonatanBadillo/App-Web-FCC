@@ -1,11 +1,14 @@
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ValidatorService } from './tools/validator.service';
 import { ErrorsService } from './tools/errors.service';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { FacadeService } from './facade.service';
+import { FacadeService } from 'src/app/services/facade.service';
 
+
+//httpopcion paa registrar usuarios
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -16,10 +19,10 @@ const httpOptions = {
 export class AdministradorService {
 
   constructor(
+    public facadeService: FacadeService,
     private http: HttpClient,
     private validatorService: ValidatorService,
     private errorService: ErrorsService,
-    private facadeService: FacadeService
   ) { }
 
   public esquemaAdmin(){
@@ -113,29 +116,29 @@ export class AdministradorService {
     return this.http.get<any>(`${environment.url_api}/lista-admins/`, {headers:headers});
   }
 
-  //Obtener un solo usuario dependiendo su ID
-  public getAdminByID(idUser: Number){
-    return this.http.get<any>(`${environment.url_api}/admin/?id=${idUser}`,httpOptions);
-  }
+    //Obtener un solo usuario dependiendo su ID
+    public getAdminByID(idUser: Number){
+      return this.http.get<any>(`${environment.url_api}/admin/?id=${idUser}`,httpOptions);
+    }
 
-  //Servicio para actualizar un usuario
-  public editarAdmin (data: any): Observable <any>{
-    var token = this.facadeService.getSessionToken();
-    var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
-    return this.http.put<any>(`${environment.url_api}/admins-edit/`, data, {headers:headers});
-  }
+    //Servicio para actualizar un usuario
+    public editarAdmin (data: any): Observable <any>{
+      var token = this.facadeService.getSessionToken();
+      var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
+      return this.http.put<any>(`${environment.url_api}/admins-edit/`, data, {headers:headers});
+    }
 
-  //Eliminar admin
-  public eliminarAdmin(idUser: number):Observable <any>{
-    var token = this.facadeService.getSessionToken();
-    var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
-    return this.http.delete<any>(`${environment.url_api}/admins-edit/?id=${idUser}`, {headers:headers});
-  }
-  //Obtener el tota de cada uno de los usuarios
-  public getTotalUsuarios(){
-    var token= this.facadeService.getSessionToken();
-    var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
-    return this.http.get<any>(`${environment.url_api}/admins-edit/`, {headers:headers});
-  }
+    //Eliminar admin
+    public eliminarAdmin(idUser: number):Observable <any>{
+      var token = this.facadeService.getSessionToken();
+      var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
+      return this.http.delete<any>(`${environment.url_api}/admins-edit/?id=${idUser}`, {headers:headers});
+    }
+    //Obtener el tota de cada uno de los usuarios
+    public getTotalUsuarios(){
+      var token= this.facadeService.getSessionToken();
+      var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
+      return this.http.get<any>(`${environment.url_api}/admins-edit/`, {headers:headers});
+    }
 
 }

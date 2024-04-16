@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
@@ -7,11 +8,10 @@ import { AlumnosScreenComponent } from './screens/alumnos-screen/alumnos-screen.
 import { MaestrosScreenComponent } from './screens/maestros-screen/maestros-screen.component';
 import { AdminScreenComponent } from './screens/admin-screen/admin-screen.component';
 
-
 const routes: Routes = [
   { path: '', component: LoginScreenComponent, pathMatch: 'full' },
   { path: 'registro-usuarios', component: RegistroScreenComponent, pathMatch: 'full' },
-  { path: 'registro-usuarios/:rol/:id', component: RegistroScreenComponent, pathMatch: 'full'},
+  { path: 'registro-usuarios/:rol/:id', component: RegistroScreenComponent, pathMatch: 'full' },
   { path: 'home', component: HomeScreenComponent, pathMatch: 'full' },
   { path: 'administrador', component: AdminScreenComponent, pathMatch: 'full' },
   { path: 'alumnos', component: AlumnosScreenComponent, pathMatch: 'full' },

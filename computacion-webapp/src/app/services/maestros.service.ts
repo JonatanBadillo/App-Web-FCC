@@ -1,30 +1,32 @@
-import { Injectable } from '@angular/core';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { ValidatorService } from './tools/validator.service';
 import { ErrorsService } from './tools/errors.service';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { FacadeService } from './facade.service';
+import { Observable } from 'rxjs';
+import { FacadeService } from 'src/app/services/facade.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+
 @Injectable({
   providedIn: 'root'
 })
 export class MaestrosService {
 
   constructor(
+    public facadeService: FacadeService,
     private http: HttpClient,
     private validatorService: ValidatorService,
     private errorService: ErrorsService,
-    private facadeService: FacadeService
   ) { }
 
   public esquemaMaestro(){
     return {
       'rol':'',
-      'id_trabajador': '',
+      'clave_maestro': '',
       'first_name': '',
       'last_name': '',
       'email': '',
@@ -35,7 +37,7 @@ export class MaestrosService {
       'rfc': '',
       'cubiculo': '',
       'area_investigacion': '',
-      'materias_json': []
+      'materias_json': [],
     }
   }
 
@@ -101,13 +103,13 @@ export class MaestrosService {
     }
 
     if(data["materias_json"].length == 0){
-      error["materias_json"] = "Al menos debes seleccionar una materia.";
-      // alert("Debes seleccionar materias para poder registrarte.");
+      alert("Debes seleccionar materias para poder registrarte.");
     }
     //Return arreglo
     return error;
   }
 
+  //Aquí van los servicios HTTP
   //Servicio para registrar un nuevo usuario
   public registrarMaestro (data: any): Observable <any>{
     return this.http.post<any>(`${environment.url_api}/maestros/`,data, httpOptions);
@@ -139,6 +141,4 @@ export class MaestrosService {
     var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
     return this.http.delete<any>(`${environment.url_api}/maestros-edit/?id=${idUser}`, {headers:headers});
   }
-
 }
-
