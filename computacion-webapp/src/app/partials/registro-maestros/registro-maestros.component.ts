@@ -1,4 +1,3 @@
-
 import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { MaestrosService } from 'src/app/services/maestros.service';

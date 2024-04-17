@@ -30,22 +30,16 @@ import string
 import random
 import json
 
-#Permite obtener toda la lista de Maestros
+#Esta funcion permite obtener toda la vista de maestros, mediante el token de autenticacion de inicio de sesion
 class MaestrosAll(generics.CreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, *args, **kwargs):
         maestros = Maestros.objects.filter(user__is_active = 1).order_by("id")
-        maestros = MaestroSerializer(maestros, many=True).data
-        #Aquí convertimos los valores de nuevo a un array
-        if not maestros:
-            return Response({},400)
-        for maestro in maestros:
-            maestro["materias_json"] = json.loads(maestro["materias_json"])
+        lista = MaestroSerializer(maestros, many=True).data
+        
+        return Response(lista, 200)
 
-        return Response(maestros, 200)
-
-#Esta clase permite 
-class MaestrosView(generics.CreateAPIView):
+class MaestrosView(generics.CreateAPIView):#Vista que realiza el Post
     #Obtener usuario por ID
     # permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, *args, **kwargs):
@@ -57,6 +51,7 @@ class MaestrosView(generics.CreateAPIView):
     #Registrar nuevo usuario
     @transaction.atomic
     def post(self, request, *args, **kwargs):
+
         user = UserSerializer(data=request.data)
         if user.is_valid():
             #Grab user data
@@ -67,41 +62,42 @@ class MaestrosView(generics.CreateAPIView):
             password = request.data['password']
             #Valida si existe el usuario o bien el email registrado
             existing_user = User.objects.filter(email=email).first()
-
+            #validacion de usuarios para su registro
             if existing_user:
                 return Response({"message":"Username "+email+", is already taken"},400)
-
+            #asignacion de valores a cada campo
             user = User.objects.create( username = email,
                                         email = email,
                                         first_name = first_name,
                                         last_name = last_name,
                                         is_active = 1)
 
-            #Esto se envia a la base de datos
-            user.save()
-            user.set_password(password) #Encripta (cifrar) la contraseña
-            user.save() #Guarda la contraseña encriptada
-            #Tabla de grupos 
+            #Guardar los datos del alumno
+            user.set_password(password) #Encripta-cifra la contraseña
+            user.save()#Guarda la contraseña cifrada
+
             group, created = Group.objects.get_or_create(name=role)
             group.user_set.add(user)
             user.save()
 
-            #Create a profile for the user (Maerstro)
-            maestro = Maestros.objects.create(user=user,
-                                            id_trabajador = request.data["id_trabajador"],
-                                            fecha_nacimiento= request.data["fecha_de_nacimiento"],
+            #Create a profile for the maestros
+            #Anadir la informacion del maestro creado a el modelo de maestros
+            maestro = Maestros.objects.create(user=user,#Aca se liga la FK entre los 2 modelos
+                                            id_trabajador= request.data["id_trabajador"],
+                                            fecha_nacimiento= request.data["fecha_nacimiento"],
                                             telefono= request.data["telefono"],
                                             rfc= request.data["rfc"].upper(),
                                             cubiculo= request.data["cubiculo"],
-                                            area_investigacion = request.data["area_investigacion"],
-                                            materias_json = json.dumps(request.data["materias_json"]))
-            maestro.save() #Guarda los datos en la base de datos
+                                            area_investigacion= request.data["area_investigacion"],
+                                             materias_json = json.dumps(request.data["materias_json"]))#Se usa json.dumps para convertirlo a una cadena de texto JSON y asi poder tratarlo mas facil en la BD
+            maestro.save()#Guarda la informacion del maestro
 
-            return Response({"maestro_created_id": maestro.id }, 201)
+            return Response({"maestro_created_id": maestro.id }, 201)#Si todo sale bien manda un mensaje de 201 (todo correcto)
 
-        return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)#Si hay un error manda un mensaje de 400 (error)
+    
 
-#Se tiene que modificar la parte de edicion y eliminar
+    #Se tiene que modificar la parte de edicion y eliminar
 class MaestrosViewEdit(generics.CreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     def put(self, request, *args, **kwargs):
