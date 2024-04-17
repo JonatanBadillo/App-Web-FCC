@@ -20,6 +20,7 @@ const group_name_cookie_name = 'computacion-group_name';
 const codigo_cookie_name = 'computacion-codigo';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -57,6 +58,7 @@ export class FacadeService {
 
     return error;
   }
+
   //Servicios para login y para cerrar sesión
   //Iniciar sesión
   login(username:String, password:String): Observable<any> {

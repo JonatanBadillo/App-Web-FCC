@@ -134,3 +134,4 @@ export interface DatosUsuario {
   area_investigacion: string,
   //materias_json: []
 }
+

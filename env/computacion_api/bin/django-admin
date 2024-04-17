@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/jonatanbadillo/Desktop/UNIVERSITY/7TH SEMESTER/APLICACIONES WEB/APLICACION-WEB/env/computacion_api/bin/python3" "$0" "$@"
+'''exec' "/home/javierdt/Documentos/Aplicaciones web/env/computacion_api/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
